@@ -12,6 +12,10 @@ import { SchedulePage } from '../pages/schedule/schedule';
 import { DelegatekitPage } from '../pages/delegatekit/delegatekit';
 import { TeamdetailsPage } from '../pages/teamdetails/teamdetails';
 import { PersonalinfoPage } from '../pages/personalinfo/personalinfo';
+import  { MentorsPage } from '../pages/mentors/mentors';
+import  { OpportunitiesPage } from '../pages/opportunities/opportunities';
+import  { TermsandconditionsPage } from '../pages/termsandconditions/termsandconditions';
+import  { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,7 +30,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DelegatekitPage,
     VenuemapPage,
     TeamdetailsPage,
-    PersonalinfoPage
+    PersonalinfoPage,
+    MentorsPage,
+    OpportunitiesPage,
+    TermsandconditionsPage,
+    PrivacyPolicyPage
 
   ],
   imports: [
@@ -43,7 +51,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     DelegatekitPage,
     VenuemapPage,
     TeamdetailsPage,
-    PersonalinfoPage
+    PersonalinfoPage,
+    MentorsPage,
+    OpportunitiesPage,
+    TermsandconditionsPage,
+    PrivacyPolicyPage
   ],
   providers: [
     StatusBar,

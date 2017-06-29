@@ -10,6 +10,10 @@ import { SchedulePage } from '../pages/schedule/schedule';
 import { DelegatekitPage } from '../pages/delegatekit/delegatekit';
 import { TeamdetailsPage } from '../pages/teamdetails/teamdetails';
 import { PersonalinfoPage } from '../pages/personalinfo/personalinfo';
+import  { MentorsPage } from '../pages/mentors/mentors';
+import  { OpportunitiesPage } from '../pages/opportunities/opportunities';
+import  { TermsandconditionsPage } from '../pages/termsandconditions/termsandconditions';
+import  { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
 
 @Component({
   templateUrl: 'app.html'
@@ -31,7 +35,11 @@ export class MyApp {
       { title: 'Team Details', component: TeamdetailsPage ,icons :'contacts'},
       { title: 'Delegate Kit', component: DelegatekitPage ,icons :'briefcase'},
       { title: 'Venue Map', component: VenuemapPage ,icons :'map'},
-      { title: 'Personal Info', component: PersonalinfoPage ,icons :'person'}
+      { title: 'Personal Info', component: PersonalinfoPage ,icons :'person'},
+      { title: 'Mentors', component: MentorsPage ,icons :'person'},
+      { title: 'Opportunities', component: OpportunitiesPage ,icons :'person'},
+      { title: 'Terms and Conditions', component: TermsandconditionsPage ,icons :'person'},
+      { title: 'Privacy Policy', component: PrivacyPolicyPage ,icons :'person'}
     ];
 
   }
