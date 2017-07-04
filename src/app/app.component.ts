@@ -1,22 +1,61 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
+import { ListPage } from '../pages/list/list';
+import { VenuemapPage } from '../pages/venuemap/venuemap';
+import { SchedulePage } from '../pages/schedule/schedule';
+import { DelegatekitPage } from '../pages/delegatekit/delegatekit';
+import { TeamdetailsPage } from '../pages/teamdetails/teamdetails';
+import { PersonalinfoPage } from '../pages/personalinfo/personalinfo';
+import  { MentorsPage } from '../pages/mentors/mentors';
+import  { OpportunitiesPage } from '../pages/opportunities/opportunities';
+import  { TermsandconditionsPage } from '../pages/termsandconditions/termsandconditions';
+import  { PrivacyPolicyPage } from '../pages/privacy-policy/privacy-policy';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
+  @ViewChild(Nav) nav: Nav;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
+  rootPage: any = LoginPage;
+
+  pages: Array<{title: string, component: any, icons: string}>;
+
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    this.initializeApp();
+
+    // used for an example of ngFor and navigation
+    this.pages = [
+      { title: 'Home', component: HomePage ,icons :'home'},
+      { title: 'Schedule', component: SchedulePage ,icons :'calendar'},
+      { title: 'Team Details', component: TeamdetailsPage ,icons :'contacts'},
+      { title: 'Delegate Kit', component: DelegatekitPage ,icons :'briefcase'},
+      { title: 'Venue Map', component: VenuemapPage ,icons :'map'},
+      { title: 'Personal Info', component: PersonalinfoPage ,icons :'person'},
+      { title: 'Mentors', component: MentorsPage ,icons :'person'},
+      { title: 'Opportunities', component: OpportunitiesPage ,icons :'person'},
+      { title: 'Terms and Conditions', component: TermsandconditionsPage ,icons :'person'},
+      { title: 'Privacy Policy', component: PrivacyPolicyPage ,icons :'person'}
+    ];
+
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
     });
   }
-}
 
+  openPage(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(page.component);
+  }
+}
