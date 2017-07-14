@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Home</h3>
+<p>This is home. welcome </p>
+<!-- <ion-item>
+  <ion-input type="text" [(ngModel)]="email" placeholder="Username"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="password" [(ngModel)]="pass" placeholder="Password"></ion-input>
+</ion-item> -->
+<button ion-button block outline (click)="addUsersinfirebase()">Add users in firebase</button>
+
+<!-- <button ion-button block outline (click)="addUsersData()">Add DATA</button> -->
+  <ion-grid>
+  <ion-row wrap>
+
+<ion-col wrap>
+<h3>Years</h3>
+ <ion-item *ngFor="let csv of csvItems">{{csv.years}}</ion-item>
+ </ion-col>
+ <ion-col wrap>
+ <h3>Salary</h3>
+ <ion-item *ngFor="let csv of csvItems">{{csv.salary}}</ion-item>
+</ion-col>
+</ion-row>
+</ion-grid>
+
+<button ion-button block (click)="logUserOut()">LOGOUT</button>
+</ion-content>
