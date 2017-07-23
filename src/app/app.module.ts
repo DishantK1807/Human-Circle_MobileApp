@@ -20,7 +20,11 @@ import { TermsandconditionsPage } from '../pages/termsandconditions/termsandcond
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsersServiceProvider } from '../providers/users-service/users-service';
-import { HttpModule } from '@angular/http'; 
+import { HttpModule } from '@angular/http';
+
+
+import { Camera } from '@ionic-native/camera';
+
 
 @NgModule({
   declarations: [
@@ -36,14 +40,13 @@ import { HttpModule } from '@angular/http';
     MentorsPage,
     OpportunitiesPage,
     PrivacypolicyPage,
-    TermsandconditionsPage
-
+    TermsandconditionsPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule
-  ],
+    ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -62,6 +65,7 @@ import { HttpModule } from '@angular/http';
   ],
   providers: [
     StatusBar,
+    Camera,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsersServiceProvider

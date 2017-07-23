@@ -15,9 +15,21 @@
 
 <ion-content padding>
   <h3>Venue Map</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
+  <ion-item>
+    <ion-row>
+      <ion-col width-50>
+        <button ion-button color="danger" type="button" full round large (click)="takePhoto()">
+                    <ion-icon name="md-camera"></ion-icon>
+                </button>
+      </ion-col>
+      <ion-col width-50>
+        <button ion-button color="secondary" type="button" full round large (click)="selectPhoto()">
+                    <ion-icon name="md-image"></ion-icon>
+                </button>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item>
+    <img class="img-responsive" src="{{ myPhotoURL }}" />
+  </ion-item>
 </ion-content>

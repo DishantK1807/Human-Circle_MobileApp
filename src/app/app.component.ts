@@ -16,6 +16,7 @@ import { OpportunitiesPage } from '../pages/opportunities/opportunities';
 import { PrivacypolicyPage } from '../pages/privacypolicy/privacypolicy';
 
 import { TermsandconditionsPage } from '../pages/termsandconditions/termsandconditions';
+
 import * as firebase from 'firebase';
 
 @Component({
