@@ -33,6 +33,20 @@ public userProfile:any;
   })
 
   }
+  loadjsonUsers(url: string){
+  if(this.data){
+  return Promise.resolve(this.data);
+  }
+  return new Promise(resolve => {
+  this.http.get(url)
+   .map(res => res.json())
+   .subscribe(data => {
+      this.data= data.results;
+      resolve(this.data);
+   })
+  })
+
+  }
   signupUser(email: string,password: string){
   return this.fireAuth.createUserWithEmailAndPassword(email,password).then((newUser)=>{
   this.fireAuth.signInWithEmailAndPassword(email,password).then((authenticatedUser)=>{
@@ -40,9 +54,9 @@ public userProfile:any;
   });
   });
   }
-  addUsers(email: string,password: string,number:any,username:any){
+  addUsers(email: string,password: string,number:any,username: any,firstname: string,lastname: string,sex: any){
   return this.fireAuth.createUserWithEmailAndPassword(email,password).then((authenticatedUser)=>{
-  this.userProfile.child(authenticatedUser.uid).set({username:username,email:email,number:number});
+  this.userProfile.child(authenticatedUser.uid).set({email:email,number:number,username:username,firstname:firstname,lastname:lastname,sex:sex});
   });
   }
 

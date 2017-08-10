@@ -15,9 +15,14 @@
 
 <ion-content padding>
   <h3>Venue Map</h3>
-  <ion-item>
+  <ion-input type="email" placeholder="Enter URL of image" [(ngModel)]="url"></ion-input>
+  <img src="{{url}}">
+  <button ion-button block (click)="addphoto()">Add photos using url</button>
+
+  <!--<ion-item>
     <ion-row>
       <ion-col width-50>
+
         <button ion-button color="danger" type="button" full round large (click)="takePhoto()">
                     <ion-icon name="md-camera"></ion-icon>
                 </button>
@@ -31,5 +36,5 @@
   </ion-item>
   <ion-item>
     <img class="img-responsive" src="{{ myPhotoURL }}" />
-  </ion-item>
+  </ion-item>-->
 </ion-content>

@@ -10,28 +10,33 @@
 <ion-content padding>
   <h3>Home</h3>
 <p>This is home. welcome </p>
+<ion-input type="email" placeholder="Enter the json file URL to add users on the database" [(ngModel)]="txt"></ion-input>
+<button ion-button block (click)="text()">Add Users in Database</button>
+
+<ion-list>
+ <ion-item *ngFor="let user of usersList">{{user.name.first}}</ion-item>
+</ion-list>
 <!-- <ion-item>
   <ion-input type="text" [(ngModel)]="email" placeholder="Username"></ion-input>
 </ion-item>
 <ion-item>
   <ion-input type="password" [(ngModel)]="pass" placeholder="Password"></ion-input>
 </ion-item> -->
-<button ion-button block outline (click)="addUsersinfirebase()">Add users in firebase</button>
+<!--<button ion-button block outline (click)="text2()">Add users in firebase</button>-->
 
 <!-- <button ion-button block outline (click)="addUsersData()">Add DATA</button> -->
-  <ion-grid>
+<!--  <ion-grid>
   <ion-row wrap>
-
 <ion-col wrap>
-<h3>Years</h3>
- <ion-item *ngFor="let csv of csvItems">{{csv.years}}</ion-item>
+<h3>Email Ids</h3>
+ <ion-item *ngFor="let csv of csvItems">{{csv.emails}}</ion-item>
  </ion-col>
  <ion-col wrap>
- <h3>Salary</h3>
- <ion-item *ngFor="let csv of csvItems">{{csv.salary}}</ion-item>
+ <h3>Passwords</h3>
+ <ion-item *ngFor="let csv of csvItems">{{csv.passwords}}</ion-item>
 </ion-col>
 </ion-row>
-</ion-grid>
+</ion-grid>-->
 
 <button ion-button block (click)="logUserOut()">LOGOUT</button>
 </ion-content>

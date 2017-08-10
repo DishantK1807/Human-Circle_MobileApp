@@ -11,27 +11,47 @@ import * as firebase from 'firebase';
 })
 export class HomePage {
 public csvItems:any;
+public txt:any;
 public email:any;
 public pass:any;
 public userId:any;
 private i:any;
 private j:any;
+private users;
+private usersList:any;
   constructor(public navCtrl: NavController,public http: Http ,private userservice:UsersServiceProvider) {
 this.userId=firebase.auth().currentUser.uid;
 
   }
+  text(){
+  alert(this.txt);
+  this.userservice.loadjsonUsers(this.txt).then(data=>{
+  this.usersList=data;
+  this.text2();
+  })
+  }
   ionViewWillEnter(){
   this.loadCSV();
   }
-  addUsersinfirebase(){
-  for(this.i=0;this.i<=(this.csvItems.length-1);this.i++){
-  this.userservice.addUsers(this.csvItems[this.i].years.trim(),this.csvItems[this.i].salary.trim(),this.csvItems[this.i].salary.trim(),this.csvItems[this.i].years.trim()).then(authData=>{
-  alert('done adding users'+this.i);
+  text2(){
+  alert(this.usersList[0].phone.trim(' '));
+  for(this.i=0;this.i<=(this.usersList.length-1);this.i++){
+  this.userservice.addUsers(this.usersList[this.i].email.trim(),this.usersList[this.i].login.password.trim(),this.usersList[this.i].phone.trim(' '),this.usersList[this.i].login.username.trim(),this.usersList[this.i].name.first.trim(),this.usersList[this.i].name.last.trim(),this.usersList[this.i].gender.trim()).then(authData=>{
+  alert('Json users added :'+this.i);
   },error=>{
   alert('error in adding users'+error.message);
   });
   }
   }
+  //addUsersinfirebase(){
+  //for(this.i=0;this.i<=(this.csvItems.length-1);this.i++){
+  //this.userservice.addUsers(this.csvItems[this.i].emails.trim(),this.csvItems[this.i].passwords.trim(),this.csvItems[this.i].emails.trim(),this.csvItems[this.i].passwords.trim()).then(authData=>{
+  //alert('done adding users'+this.i);
+  //},error=>{
+  //alert('error in adding users'+error.message);
+  //});
+  //}
+  //}
   addUsersData(){
 
   alert('welcome'+this.csvItems.length);
@@ -51,7 +71,7 @@ this.navCtrl.setRoot(LoginPage);
   }
 
 loadCSV(){
-   this.http.get('../../assets/data/salary.csv')
+   this.http.get('../../assets/data/users.csv')
    .map(res => res.text())
    .subscribe((data)=>
    {
@@ -127,8 +147,8 @@ parseCSVFile(str)
 
 formatParsedObject(arr, hasTitles)
 {
-   let years,
-       salary,
+   let emails,
+       passwords,
        obj = [];
 
    for(var j = 0; j < arr.length; j++)
@@ -139,14 +159,14 @@ formatParsedObject(arr, hasTitles)
       {
          if(hasTitles === true && j === 0)
          {
-            years        = items[0];
-            salary        = items[1];
+            emails        = items[0];
+            passwords        = items[1];
             }
          else
          {
             obj.push({
-               years          : items[0],
-               salary       : items[1]
+               emails          : items[0],
+               passwords       : items[1]
             });
          }
       }

@@ -17,16 +17,26 @@ import * as firebase from 'firebase';
   templateUrl: 'venuemap.html',
 })
 export class VenuemapPage {
+public url:any;
 public myPhotosRef: any;
   public myPhoto: any;
   public myPhotoURL: any;
+  public fbdata:any;
    constructor(public navCtrl: NavController, public navParams: NavParams, public zone: NgZone, public camera:Camera) {
+   this.fbdata=firebase.database().ref('image');
+
   this.myPhotosRef = firebase.storage().ref('/Photos/');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VenuemapPage');
   }
+  addphoto(){
+  this.fbdata.set({imagelink:this.url.trim()});
+  alert("Image link added:"+this.url.trim());
+  }
+
+
   takePhoto() {
   alert('weeaw');
 
