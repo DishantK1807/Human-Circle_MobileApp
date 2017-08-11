@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FileChooser} from '@ionic-native/file-chooser';
 //import {FilePath} from '@ionic-native/file-path';
-declare var cordova: any;
+//declare var cordova: any;
 
 /**
  * Generated class for the SchedulePage page.
@@ -26,8 +26,7 @@ export class SchedulePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchedulePage');
   }
-choosefile(){
-alert('files');
-}
+//choosefile(){
+//alert('files'); }
 
 }

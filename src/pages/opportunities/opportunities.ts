@@ -15,17 +15,17 @@ import * as firebase from 'firebase';
   templateUrl: 'opportunities.html',
 })
 export class OpportunitiesPage {
-public url:any;
-public fbdata:any;
+//public url:any;
+//public fbdata:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  this.fbdata=firebase.database().ref('links');
+  //this.fbdata=firebase.database().ref('links');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OpportunitiesPage');
   }
-  addlinks(){
-  this.fbdata.set({link:this.url.trim()});
-  alert("link added:"+this.url.trim());
-  }
+ // addlinks(){
+ // this.fbdata.set({link:this.url.trim()});
+ // alert("link added:"+this.url.trim());
+ // }
 }

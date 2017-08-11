@@ -1,14 +1,28 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams  } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { LoginPage } from '../login/login';
 import { UsersServiceProvider } from '../../providers/users-service/users-service';
 import * as firebase from 'firebase';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
   providers: [UsersServiceProvider]
 })
+
+export class HomePage {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+  }
+
+}
+
+/*
 export class HomePage {
 public csvItems:any;
 public txt:any;
@@ -99,10 +113,10 @@ parseCSVFile(str)
       arr[row]           = arr[row] || [];
       arr[row][col]  = arr[row][col] || '';
 
-      /* If the current character is a quotation mark, and we're inside a
-    quoted field, and the next character is also a quotation mark,
-    add a quotation mark to the current column and skip the next character
-      */
+      // If the current character is a quotation mark, and we're inside a
+  //  quoted field, and the next character is also a quotation mark,
+   // add a quotation mark to the current column and skip the next character
+      
       if (cc == '"' && quote && nc == '"')
       {
          arr[row][col] += cc;
@@ -127,8 +141,8 @@ parseCSVFile(str)
       }
 
 
-      /* If it's a newline and we're not in a quoted field, move on to the next
-         row and move to column 0 of that new row */
+      // If it's a newline and we're not in a quoted field, move on to the next
+      //   row and move to column 0 of that new row 
       if (cc == '\n' && !quote)
       {
          ++row;
@@ -173,5 +187,8 @@ formatParsedObject(arr, hasTitles)
    }
    return obj;
 }
-
 }
+*/
+
+
+

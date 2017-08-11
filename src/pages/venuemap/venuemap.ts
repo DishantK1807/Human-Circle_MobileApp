@@ -16,6 +16,19 @@ import * as firebase from 'firebase';
   selector: 'page-venuemap',
   templateUrl: 'venuemap.html',
 })
+
+export class VenuemapPage {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad VenuemapPage');
+  }
+
+}
+
+/*
 export class VenuemapPage {
 public url:any;
 public myPhotosRef: any;
@@ -23,9 +36,9 @@ public myPhotosRef: any;
   public myPhotoURL: any;
   public fbdata:any;
    constructor(public navCtrl: NavController, public navParams: NavParams, public zone: NgZone, public camera:Camera) {
-   this.fbdata=firebase.database().ref('image');
+   //this.fbdata=firebase.database().ref('image');
 
-  this.myPhotosRef = firebase.storage().ref('/Photos/');
+  //this.myPhotosRef = firebase.storage().ref('/Photos/');
   }
 
   ionViewDidLoad() {
@@ -95,4 +108,4 @@ public myPhotosRef: any;
   }*/
 
 
-}
+
