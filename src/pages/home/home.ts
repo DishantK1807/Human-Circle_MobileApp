@@ -4,7 +4,10 @@ import { Http } from '@angular/http';
 import { LoginPage } from '../login/login';
 import { UsersServiceProvider } from '../../providers/users-service/users-service';
 import * as firebase from 'firebase';
+import { AlertController } from 'ionic-angular';
+//import {Injectable} from '@angular/core';
 
+//@Injectable()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -13,12 +16,36 @@ import * as firebase from 'firebase';
 
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+ /* private heading: any;
+  private content: any;
+  private db: any;
+  private homepg: any;
+  private hchild: any;
+  private para1c = any;
+*/
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private userservice:UsersServiceProvider,public alertCtrl: AlertController) {
+   /* this.db = firebase.database().ref('/'); // Get a firebase reference to the root
+      this.homepg = firebase.database().ref('homepage'); // Get a firebase reference to the todos
+      this.hchild = homepg.child('para1');
+      this.para1c = para1.child('heading')
+      this.para1c.on('child_added', this.handleData, this); // ***ADD THIS LINE***
+      
+      handleData(snap)
+    {
+        //Do something with the data
+    }
+    */
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
+
+  logUserOut(){
+ this.userservice.logoutUser().then(()=>{
+this.navCtrl.setRoot(LoginPage);
+ });
 
 }
 
@@ -191,4 +218,4 @@ formatParsedObject(arr, hasTitles)
 */
 
 
-
+}

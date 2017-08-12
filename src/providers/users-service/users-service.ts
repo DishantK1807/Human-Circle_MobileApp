@@ -54,11 +54,11 @@ public userProfile:any;
   });
   });
   }
-  addUsers(email: string,password: string,number:any,username: any,firstname: string,lastname: string,sex: any){
-  return this.fireAuth.createUserWithEmailAndPassword(email,password).then((authenticatedUser)=>{
-  this.userProfile.child(authenticatedUser.uid).set({email:email,number:number,username:username,firstname:firstname,lastname:lastname,sex:sex});
-  });
-  }
+ // addUsers(email: string,password: string,number:any,username: any,firstname: string,lastname: string,sex: any){
+ // return this.fireAuth.createUserWithEmailAndPassword(email,password).then((authenticatedUser)=>{
+  //this.userProfile.child(authenticatedUser.uid).set({email:email,number:number,username:username,firstname:firstname,lastname:lastname,sex:sex});
+  //});
+  //}
 
 
   loginUser(email: string, password: string): any{
@@ -67,6 +67,13 @@ public userProfile:any;
   }
   logoutUser(){
   return this.fireAuth.signOut();
+  }
+
+  //method for viewing user used in personal info page
+  viewUser(userId: any){
+    var UserRef = this.userProfile.child(userId);
+
+    return UserRef.once('value');
   }
 
 }
