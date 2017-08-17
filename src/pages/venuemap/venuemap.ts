@@ -22,18 +22,26 @@ public myPhotosRef: any;
   public myPhoto: any;
   public myPhotoURL: any;
   public fbdata:any;
+  public number:any;
    constructor(public navCtrl: NavController, public navParams: NavParams, public zone: NgZone, public camera:Camera) {
-   this.fbdata=firebase.database().ref('image');
-
-  this.myPhotosRef = firebase.storage().ref('/Photos/');
+   this.number=1;
+   this.fbdata=firebase.database();
+   //this.myPhotosRef = firebase.storage().ref('/Photos/');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VenuemapPage');
   }
   addphoto(){
-  this.fbdata.set({imagelink:this.url.trim()});
-  alert("Image link added:"+this.url.trim());
+  //alert(this.number);
+  if (this.number==1){
+  this.fbdata.ref('venuemap/').remove();
+  }
+  this.fbdata.ref('venuemap/image'+this.number).set(
+  {link:this.url.trim()}
+  );
+  alert("Image "+this.number+" link added:"+this.url.trim());
+  this.number++;
   }
 
 

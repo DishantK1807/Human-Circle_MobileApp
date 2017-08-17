@@ -15,10 +15,14 @@
 
 <ion-content padding>
   <h3>Schedule</h3>
+  <h4>DAY 1</h4>
+  <ion-input type="string" placeholder="Enter time of the event" [(ngModel)]="input1"></ion-input>
+  <ion-input type="string" placeholder="Enter description of the event" [(ngModel)]="input2"></ion-input>
+  <button ion-button block (click)="dayoneevents()">Add Events for Day 1</button>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-  <button ion-button block (click)="choosefile()">Choose file</button>
+<h4>DAY 2</h4>
+<ion-input type="string" placeholder="Enter time of the event" [(ngModel)]="input3"></ion-input>
+<ion-input type="string" placeholder="Enter description of the event" [(ngModel)]="input4"></ion-input>
+<button ion-button block (click)="daytwoevents()">Add Events for Day 2 </button>
 
 </ion-content>

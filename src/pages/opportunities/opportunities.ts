@@ -15,17 +15,25 @@ import * as firebase from 'firebase';
   templateUrl: 'opportunities.html',
 })
 export class OpportunitiesPage {
-public url:any;
+public input1:any;
+public input2:any;
+public input3:any;
+public number:any;
 public fbdata:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  this.fbdata=firebase.database().ref('links');
+  this.number=1;
+  this.fbdata=firebase.database();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OpportunitiesPage');
   }
   addlinks(){
-  this.fbdata.set({link:this.url.trim()});
-  alert("link added:"+this.url.trim());
+  if (this.number==1){
+  this.fbdata.ref('opportunities/').remove();
+  }
+  this.fbdata.ref('opportunities/opportunity'+this.number).set({heading:this.input1,content:this.input2,link:this.input3.trim()});
+  alert("opportunity "+this.number+" added : "+this.input1.trim());
+  this.number++;
   }
 }

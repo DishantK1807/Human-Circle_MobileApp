@@ -15,9 +15,13 @@
 
 <ion-content padding>
   <h3>Delegate Kit</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <h4>Content</h4>
+  <ion-input type="string" placeholder="Enter heading of the Delegate Kit" [(ngModel)]="input1"></ion-input>
+  <ion-input type="string" placeholder="Enter content of the Delegate Kit" [(ngModel)]="input2"></ion-input>
+  <button ion-button block (click)="addContent()">Add Content</button>
+  <h4>Links</h4>
+  <ion-input type="string" placeholder="Enter heading of the Delegate Kit" [(ngModel)]="input3"></ion-input>
+  <ion-input type="string" placeholder="Enter link of the Delegate Kit" [(ngModel)]="input4"></ion-input>
+  <button ion-button block (click)="addLinks()">Add Links</button>
 
 </ion-content>

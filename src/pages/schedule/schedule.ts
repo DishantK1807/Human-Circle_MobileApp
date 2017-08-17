@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {FileChooser} from '@ionic-native/file-chooser';
-//import {FilePath} from '@ionic-native/file-path';
+
+import * as firebase from 'firebase';
 declare var cordova: any;
 
 /**
@@ -16,18 +16,38 @@ declare var cordova: any;
   templateUrl: 'schedule.html',
 })
 export class SchedulePage {
+public input1:any;
+public input2:any;
+public input3:any;
+public input4:any;
+public number:any;
+public number2:any;
+public fbdata:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  //public FilePath:FilePath;
-  //public FileChooser:FileChooser;
-  //public eventsdata: EventData
+  this.number=1;
+  this.number2=1;
+  this.fbdata=firebase.database();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchedulePage');
   }
-choosefile(){
-alert('files');
-}
+  dayoneevents(){
+  if (this.number==1){
+  this.fbdata.ref('schedule/day1/').remove();
+  }
+  this.fbdata.ref('schedule/day1/timeslot'+this.number).set({time:this.input1,description:this.input2});
+  alert("Day 1 event "+this.number+" added for "+this.input1.trim());
+  this.number++;
+  }
 
-}
+  daytwoevents(){
+  if (this.number2==1){
+  this.fbdata.ref('schedule/day2/').remove();
+  }
+  this.fbdata.ref('schedule/day2/timeslot'+this.number2).set({time:this.input3,description:this.input4});
+  alert("Day 1 event "+this.number2+" added for "+this.input1.trim());
+  this.number2++;
+  }
+  }

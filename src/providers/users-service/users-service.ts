@@ -59,7 +59,11 @@ public userProfile:any;
   this.userProfile.child(authenticatedUser.uid).set({email:email,number:number,username:username,firstname:firstname,lastname:lastname,sex:sex});
   });
   }
+  viewUser(userId: any){
+    var UserRef = this.userProfile.child(userId);
 
+    return UserRef.once('value');
+  }
 
   loginUser(email: string, password: string): any{
   return this.fireAuth.signInWithEmailAndPassword(email,password);

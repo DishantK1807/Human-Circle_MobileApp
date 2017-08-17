@@ -8,14 +8,25 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Home</h3>
-<p>This is home. welcome </p>
+
+<h4>USERS</h4>
+<p>Enter the link of .json file containg users data below: </p>
 <ion-input type="email" placeholder="Enter the json file URL to add users on the database" [(ngModel)]="txt"></ion-input>
-<button ion-button block (click)="text()">Add Users in Database</button>
+<button ion-button block (click)="addusersinfirebase()">Add Users in Database</button>
 
 <ion-list>
  <ion-item *ngFor="let user of usersList">{{user.name.first}}</ion-item>
 </ion-list>
+
+<h4>Content</h4>
+<p>Enter the content you want to display on Home Page </p>
+<ion-input type="string" placeholder="Enter heading of the Homepage" [(ngModel)]="input1"></ion-input>
+<ion-input type="string" placeholder="Enter content of the Homepage" [(ngModel)]="input2"></ion-input>
+<button ion-button block (click)="addContent()">Add Content</button>
+<p>
+
+
+</p>
 <!-- <ion-item>
   <ion-input type="text" [(ngModel)]="email" placeholder="Username"></ion-input>
 </ion-item>

@@ -1,6 +1,5 @@
 <!--
   Generated template for the PersonalinfoPage page.
-
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
@@ -9,15 +8,22 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>PersonalInfo</ion-title>
+    <ion-title>Personal Info</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <h3>Personal Info</h3>
-
+<ion-content>
   <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+ <ion-card-title>
+<h3>ADMIN:
+{{userFname}}
+  {{userLname}} </h3><br>
+  Email: {{userEmail}} <br>
+  Gender: {{userSex}} <br>
+  Contact: {{userNumber}} <br>
+  Username: {{userUsername}}
+
+</ion-card-title>
   </p>
+
 
 </ion-content>
