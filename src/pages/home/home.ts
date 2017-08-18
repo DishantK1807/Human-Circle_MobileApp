@@ -17,33 +17,33 @@ import {Injectable} from '@angular/core';
 
 export class HomePage {
  
-  private heading: any;
-  //private content: any;
+  
   private db: any;
   private homepg: any;
   private hchild: any;
   private para1c: any;
-  private cont: any;
-  //private headarr: string[];
-  //private contarr: string[];
+
+  private contarr=[];
+  private headarr=[];
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private userservice:UsersServiceProvider,public alertCtrl: AlertController) {
    this.db = firebase.database().ref('/'); // Get a firebase reference to the root
       this.homepg = firebase.database().ref('homepage'); // Get a firebase reference to the homepage
     
+  var that= this;
     this.homepg.on("value",function(snappy){
+      var i=0;
     snappy.forEach(function(snap){
        
         var heading = snap.child('heading');
-        alert(heading.key + " : "+ heading.val());
-
         var content = snap.child('content');
-        alert(content.key + " : " + content.val());
+        that.headarr[i] = heading.val();
+        that.contarr[i] = content.val();
+        i=i+1;
+
       }); 
-      });// ***ADD THIS LINE***
-     
-    
+      });
      }  
 
 
