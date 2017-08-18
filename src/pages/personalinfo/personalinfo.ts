@@ -31,7 +31,7 @@ export class PersonalinfoPage {
    
      var myUserId = firebase.auth().currentUser.uid; //current user id
     this.displayUser(myUserId);
-    this.showAlert(myUserId);
+   this.showAlert(myUserId);
 
   }
 
@@ -43,6 +43,7 @@ export class PersonalinfoPage {
   displayUser(theUserId){
     var that = this;
     this.userservice.viewUser(theUserId).then(snapshot => {
+     // alert(snapshot.key);
       that.userFname = snapshot.val().firstname;
       that.userLname = snapshot.val().lastname;
       that.userEmail = snapshot.val().email;
