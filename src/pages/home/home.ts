@@ -20,8 +20,6 @@ export class HomePage {
   
   private db: any;
   private homepg: any;
-  private hchild: any;
-  private para1c: any;
 
   private contarr=[];
   private headarr=[];
