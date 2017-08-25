@@ -15,9 +15,9 @@
 
 <ion-content padding>
   <h3>Team Details</h3>
+  <p>Enter the link of .json file containg teams' data below: </p><ion-item>
+  <ion-input type="email" placeholder="Enter the json file URL to add users on the database" [(ngModel)]="txt" clearInput></ion-input></ion-item>
+  <button ion-button block (click)="addteamsinfirebase()">Add Teams in Database</button>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
 
 </ion-content>

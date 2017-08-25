@@ -14,8 +14,8 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Venue Map</h3>
-  <ion-input type="string" placeholder="Enter URL of image" [(ngModel)]="url"></ion-input>
+  <h3>Venue Map</h3><ion-item>
+  <ion-input type="string" placeholder="Enter URL of image" [(ngModel)]="url" clearInput></ion-input></ion-item>
   <img src="{{url}}">
   <button ion-button block (click)="addphoto()">Add photos using url</button>
 

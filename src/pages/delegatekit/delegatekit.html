@@ -15,13 +15,13 @@
 
 <ion-content padding>
   <h3>Delegate Kit</h3>
-  <h4>Content</h4>
-  <ion-input type="string" placeholder="Enter heading of the Delegate Kit" [(ngModel)]="input1"></ion-input>
-  <ion-input type="string" placeholder="Enter content of the Delegate Kit" [(ngModel)]="input2"></ion-input>
+  <h4>Content</h4><ion-item>
+  <ion-input type="string" placeholder="Enter heading of the Delegate Kit" [(ngModel)]="input1" clearInput></ion-input></ion-item><ion-item>
+  <ion-input type="string" placeholder="Enter content of the Delegate Kit" [(ngModel)]="input2" clearInput></ion-input></ion-item>
   <button ion-button block (click)="addContent()">Add Content</button>
-  <h4>Links</h4>
-  <ion-input type="string" placeholder="Enter heading of the Delegate Kit" [(ngModel)]="input3"></ion-input>
-  <ion-input type="string" placeholder="Enter link of the Delegate Kit" [(ngModel)]="input4"></ion-input>
+  <h4>Links</h4><ion-item>
+  <ion-input type="string" placeholder="Enter heading of the Delegate Kit" [(ngModel)]="input3" clearInput></ion-input></ion-item><ion-item>
+  <ion-input type="string" placeholder="Enter link of the Delegate Kit" [(ngModel)]="input4" clearInput></ion-input></ion-item>
   <button ion-button block (click)="addLinks()">Add Links</button>
 
 </ion-content>

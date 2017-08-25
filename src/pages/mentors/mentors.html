@@ -14,9 +14,9 @@
 </ion-header>
 
 <ion-content padding class="homepg_bg">
-  <h3>Mentors</h3>
-  <ion-input type="string" placeholder="Enter name of the mentor" [(ngModel)]="input1"></ion-input>
-  <ion-input type="string" placeholder="Enter description of the Opportunity" [(ngModel)]="input2"></ion-input>
-  <ion-input type="string" placeholder="Enter link of the Opportunity" [(ngModel)]="input3"></ion-input>
+  <h3>Mentors</h3><ion-item>
+  <ion-input type="string" placeholder="Enter name of the mentor" [(ngModel)]="input1" clearInput></ion-input></ion-item><ion-item>
+  <ion-input type="string" placeholder="Enter description of the Opportunity" [(ngModel)]="input2" clearInput></ion-input></ion-item><ion-item>
+  <ion-input type="string" placeholder="Enter link of the Opportunity" [(ngModel)]="input3" clearInput></ion-input></ion-item>
   <button ion-button block (click)="addMentors()">Add Mentor</button>
 </ion-content>

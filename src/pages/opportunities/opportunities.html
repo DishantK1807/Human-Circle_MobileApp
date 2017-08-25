@@ -14,10 +14,10 @@
 </ion-header>
 
 <ion-content padding class="homepg_bg">
-  <h3>Opportunities</h3>
-  <ion-input type="string" placeholder="Enter heading of the Opportunity" [(ngModel)]="input1"></ion-input>
-  <ion-input type="string" placeholder="Enter content of the Opportunity" [(ngModel)]="input2"></ion-input>
-  <ion-input type="string" placeholder="Enter link of the Opportunity" [(ngModel)]="input3"></ion-input>
+  <h3>Opportunities</h3><ion-item>
+  <ion-input type="string" placeholder="Enter heading of the Opportunity" [(ngModel)]="input1" clearInput></ion-input></ion-item><ion-item>
+  <ion-input type="string" placeholder="Enter content of the Opportunity" [(ngModel)]="input2" clearInput></ion-input></ion-item><ion-item>
+  <ion-input type="string" placeholder="Enter link of the Opportunity" [(ngModel)]="input3" clearInput></ion-input></ion-item>
   <button ion-button block (click)="addlinks()">Add Opportunity</button>
 
 

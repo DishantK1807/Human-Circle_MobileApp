@@ -13,10 +13,10 @@
   		<ion-card-content>
   			<ion-list no-line>
   				<ion-item>
-  					<ion-input type="text" [(ngModel)]="emailfield" placeholder="Username" id="email"></ion-input>
+  					<ion-input type="text" [(ngModel)]="emailfield" placeholder="Username" id="email" clearInput></ion-input>
   				</ion-item>
   				<ion-item>
-  					<ion-input type="password" [(ngModel)]="passfield" placeholder="Password"></ion-input>
+  					<ion-input type="password" [(ngModel)]="passfield" placeholder="Password" clearInput></ion-input>
   				</ion-item>
   				<a>Forgot your login detail? <b>Get help signing in</b></a>
   				<button ion-button block outline color="light" (click)="submitLogin()">Log in</button>

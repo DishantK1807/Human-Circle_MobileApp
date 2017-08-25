@@ -33,14 +33,22 @@ this.fbdata=firebase.database();
   //this.loadCSV();
   }
   addusersinfirebase(){
-  alert(this.txt);
+  if(this.txt==null){
+  alert("Please enter json file url");
+  }
+  else {
   this.userservice.loadjsonUsers(this.txt).then(data=>{
   this.usersList=data;
+  //alert(this.usersList[0].email.trim());
+  //alert("Try Again");
+  //this.timeout();
   this.text2();
+
   })
   }
+  }
   text2(){
-  alert(this.usersList[0].phone.trim(' '));
+  alert("Started adding to database");
   for(this.i=0;this.i<=(this.usersList.length-1);this.i++){
   this.userservice.addUsers(this.usersList[this.i].email.trim(),this.usersList[this.i].login.password.trim(),this.usersList[this.i].phone.trim(' '),this.usersList[this.i].login.username.trim(),this.usersList[this.i].name.first.trim(),this.usersList[this.i].name.last.trim(),this.usersList[this.i].gender.trim()).then(authData=>{
   alert('Json users added :'+this.i);
@@ -48,6 +56,14 @@ this.fbdata=firebase.database();
   alert('error in adding users'+error.message);
   });
   }
+  }
+  timeout() {
+      var that = this;
+      setTimeout(function () {
+          console.log('Test');
+          that.timeout();
+      }, 1000/3600);
+      alert("Timed out...please try again");
   }
   addContent(){
   if (this.number==1){

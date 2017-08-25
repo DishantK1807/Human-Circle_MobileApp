@@ -10,8 +10,8 @@
 <ion-content padding>
 
 <h4>USERS</h4>
-<p>Enter the link of .json file containg users data below: </p>
-<ion-input type="email" placeholder="Enter the json file URL to add users on the database" [(ngModel)]="txt"></ion-input>
+<p>Enter the link of .json file containg users data below: </p><ion-item>
+<ion-input type="email" placeholder="Enter the json file URL to add users on the database" [(ngModel)]="txt" clearInput></ion-input></ion-item>
 <button ion-button block (click)="addusersinfirebase()">Add Users in Database</button>
 
 <ion-list>
@@ -19,9 +19,9 @@
 </ion-list>
 
 <h4>Content</h4>
-<p>Enter the content you want to display on Home Page </p>
-<ion-input type="string" placeholder="Enter heading of the Homepage" [(ngModel)]="input1"></ion-input>
-<ion-input type="string" placeholder="Enter content of the Homepage" [(ngModel)]="input2"></ion-input>
+<p>Enter the content you want to display on Home Page </p><ion-item>
+<ion-input type="string" placeholder="Enter heading of the Homepage" [(ngModel)]="input1" clearInput></ion-input></ion-item><ion-item>
+<ion-input type="string" placeholder="Enter content of the Homepage" [(ngModel)]="input2" clearInput></ion-input></ion-item>
 <button ion-button block (click)="addContent()">Add Content</button>
 <p>
 

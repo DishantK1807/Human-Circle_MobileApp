@@ -43,8 +43,10 @@ public userProfile:any;
    .subscribe(data => {
       this.data= data.results;
       resolve(this.data);
+   },error=>{
+   alert('Error in adding...Try again...');
    })
-  })
+  });
 
   }
   signupUser(email: string,password: string){
