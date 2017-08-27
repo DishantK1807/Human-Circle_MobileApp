@@ -13,7 +13,7 @@ import { PersonalinfoPage } from '../pages/personalinfo/personalinfo';
 import { MentorsPage } from '../pages/mentors/mentors';
 import { OpportunitiesPage } from '../pages/opportunities/opportunities';
 import { PrivacypolicyPage } from '../pages/privacypolicy/privacypolicy';
-import { TermsandconditionsPage } from '../pages/termsandconditions/termsandconditions';
+
 
 import { Geolocation } from '@ionic-native/geolocation';
 //import { Platform } from 'ionic-angular';
@@ -69,7 +69,7 @@ export class MyApp {
       { title: 'Opportunities', component: OpportunitiesPage ,icons :'person'},
       { title: 'Privacy Policy', component: PrivacypolicyPage ,icons :'person'},
 
-      { title: 'Terms and Conditions', component: TermsandconditionsPage ,icons :'person'}
+     
     ];
 
   }

@@ -14,17 +14,16 @@
 </ion-header>
 
 <ion-content padding class="homepg_bg">
-  <h3>Mentors</h3>
 
-  <ion-content class="has-header">
-  <ion-list *ngFor="let head of contarr; let i = index" no-lines>
- 
-     {{ namearr[i] }} 
-    <ion-item> {{ contarr[i] }} </ion-item>
-    <ion-item> <a href="{{linkarr[i]}}"> {{ linkarr[i] }}  </a> </ion-item>
-  </ion-list>
-  
-</ion-content>
+  <ul *ngFor="let head of contarr; let i = index" no-lines>
+ <li>
+     <h3> {{ namearr[i] }} </h3>
+    <h5> {{ contarr[i] }} </h5>
+    <p> Link to Mentor's Profile:  <a href="{{linkarr[i]}}"> {{ linkarr[i] }}  </a> </p>
+  </li>
+  <br />
+  </ul>
+
 
 
 </ion-content>

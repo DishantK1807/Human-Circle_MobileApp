@@ -9,23 +9,22 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Delegate Kit</h3>
   
-
-  <ion-content class="has-header2">
-  <ion-list *ngFor="let head of headarr; let i = index" no-lines>
+  <div *ngFor="let head of headarr; let i = index" no-lines>
  
-     {{ headarr[i] }} 
-    <ion-item> {{ contarr[i] }} </ion-item>
-  </ion-list>
+    <h3> {{ headarr[i] }} </h3> 
+    <h5> {{ contarr[i] }} </h5>
+    <br />
+  </div>
 
-   <ion-list *ngFor="let head2 of headarr2; let j = index" no-lines>
+  <h3> Relevant Links: </h3>
+   <ul *ngFor="let head2 of headarr2; let j = index" no-lines>
  
-     {{ headarr2[j] }} 
-    <ion-item> <a href="{{linkarr[j]}}"> {{ linkarr[j] }}  </a>  </ion-item>
-  </ion-list>
+     <li>
+     <a href="{{linkarr[j]}}"> {{ headarr[j] }}  </a>  
+  </li>
+  </ul>
   
-</ion-content>
 
  
 

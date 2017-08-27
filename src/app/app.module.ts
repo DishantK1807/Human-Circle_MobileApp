@@ -16,7 +16,7 @@ import { OpportunitiesPage } from '../pages/opportunities/opportunities';
 import { MentorsPage } from '../pages/mentors/mentors';
 
 import { PrivacypolicyPage } from '../pages/privacypolicy/privacypolicy';
-import { TermsandconditionsPage } from '../pages/termsandconditions/termsandconditions';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsersServiceProvider } from '../providers/users-service/users-service';
@@ -44,7 +44,7 @@ import { Platform } from 'ionic-angular';
     MentorsPage,
     OpportunitiesPage,
     PrivacypolicyPage,
-    TermsandconditionsPage,
+    
   ],
   imports: [
     BrowserModule,
@@ -65,7 +65,7 @@ import { Platform } from 'ionic-angular';
     MentorsPage,
     OpportunitiesPage,
     PrivacypolicyPage,
-    TermsandconditionsPage
+    
   ],
   providers: [
     StatusBar,

@@ -14,16 +14,18 @@
 </ion-header>
 
 <ion-content padding class="homepg_bg">
-  <h3>Opportunities</h3>
- 
-  <ion-content class="has-header">
-  <ion-list *ngFor="let head of contarr; let i = index" no-lines>
- 
-     {{ headarr[i] }} 
-    <ion-item> {{ contarr[i] }} </ion-item>
-    <ion-item> <a href="{{linkarr[i]}}"> {{ linkarr[i] }}  </a> </ion-item>
-  </ion-list>
   
-</ion-content>
+ 
+  
+  <ul *ngFor="let head of contarr; let i = index" no-lines>
+ <li>
+     <h3> {{ headarr[i] }} </h3> 
+    <h5> {{ contarr[i] }} </h5>
+    <p> Link to this Opportunity: <a href="{{linkarr[i]}}"> {{ linkarr[i] }}  </a> </p>
+  <br />
+  </li>
+  </ul>
+  
+
 
 </ion-content>

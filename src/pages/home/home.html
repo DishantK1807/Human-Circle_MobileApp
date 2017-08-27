@@ -9,7 +9,7 @@
 
 <ion-content padding>
 
-<ion-content class="has-header">
+
   <div *ngFor="let head of headarr; let i = index" no-lines>
  
    <h3 font-weight: bold>  {{ headarr[i] }} </h3>
@@ -17,7 +17,7 @@
     <br />
   
   </div>  
-</ion-content>
+
 
 <button ion-button block (click)="onLocateUser()"> Locate Me </button>
 Your Location: {{lat1}} , {{lon1}}
