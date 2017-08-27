@@ -1,5 +1,8 @@
 {
   "name": "Human_Circle",
-  "app_id": "67aa433f",
-  "type": "ionic-angular"
+  "app_id": "b48ea6f6",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }

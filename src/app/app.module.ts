@@ -25,6 +25,10 @@ import { HttpModule } from '@angular/http';
 
 import { Camera } from '@ionic-native/camera';
 
+import { Geolocation } from '@ionic-native/geolocation';
+import { Platform } from 'ionic-angular';
+
+
 
 @NgModule({
   declarations: [
@@ -66,6 +70,7 @@ import { Camera } from '@ionic-native/camera';
   providers: [
     StatusBar,
     Camera,
+    Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsersServiceProvider

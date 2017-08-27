@@ -12,10 +12,13 @@ import { TeamdetailsPage } from '../pages/teamdetails/teamdetails';
 import { PersonalinfoPage } from '../pages/personalinfo/personalinfo';
 import { MentorsPage } from '../pages/mentors/mentors';
 import { OpportunitiesPage } from '../pages/opportunities/opportunities';
-
 import { PrivacypolicyPage } from '../pages/privacypolicy/privacypolicy';
-
 import { TermsandconditionsPage } from '../pages/termsandconditions/termsandconditions';
+
+import { Geolocation } from '@ionic-native/geolocation';
+//import { Platform } from 'ionic-angular';
+
+
 
 import * as firebase from 'firebase';
 
@@ -27,18 +30,20 @@ export class MyApp {
   public rootPage: any;
   pages: Array<{title: string, component: any, icons: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public geolocation: Geolocation) {
   //this.rootPage = LoginPage;
   // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyBjnqMDq7uz5ETdSKHcGDKrj2tlTGsnL54",
-      authDomain: "human-circle.firebaseapp.com",
-      databaseURL: "https://human-circle.firebaseio.com",
-      projectId: "human-circle",
-      storageBucket: "human-circle.appspot.com",
-      messagingSenderId: "418555457379"
-    };
-    firebase.initializeApp(config);
+ 
+  var config = {
+    apiKey: "AIzaSyBjnqMDq7uz5ETdSKHcGDKrj2tlTGsnL54",
+    authDomain: "human-circle.firebaseapp.com",
+    databaseURL: "https://human-circle.firebaseio.com",
+    projectId: "human-circle",
+    storageBucket: "human-circle.appspot.com",
+    messagingSenderId: "418555457379"
+  };
+  firebase.initializeApp(config);
+
     firebase.auth().onAuthStateChanged((user)=>{
     if (user){
     this.rootPage=HomePage;

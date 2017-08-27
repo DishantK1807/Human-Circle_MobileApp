@@ -19,5 +19,12 @@
   </ion-list>
   
 </ion-content>
+
+<button ion-button block (click)="onLocateUser()"> Locate Me </button>
+Your Location: {{lat1}} , {{lon1}}
+
+<button ion-button block (click)="distance()"> Distance </button>
+Distance is : {{dist}}
+
 <button ion-button block (click)="logUserOut()">LOGOUT</button>
 </ion-content>
