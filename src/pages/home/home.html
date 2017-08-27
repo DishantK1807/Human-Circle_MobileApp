@@ -8,16 +8,15 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Home</h3>
-<p>This is home. welcome </p>
 
 <ion-content class="has-header">
-  <ion-list *ngFor="let head of headarr; let i = index" no-lines>
+  <div *ngFor="let head of headarr; let i = index" no-lines>
  
-     {{ headarr[i] }} 
-    <ion-item> {{ contarr[i] }} </ion-item>
-  </ion-list>
+   <h3 font-weight: bold>  {{ headarr[i] }} </h3>
+    <h5>{{ contarr[i] }} </h5>
+    <br />
   
+  </div>  
 </ion-content>
 
 <button ion-button block (click)="onLocateUser()"> Locate Me </button>

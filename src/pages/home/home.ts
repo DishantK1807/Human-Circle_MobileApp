@@ -83,7 +83,7 @@ onLocateUser(){
 }
 
 //function to calculate distance between venue and current users position.
-/*
+
  distance() {
    console.log('inside distance function');
 	var radlat1 = Math.PI * this.lat1/180;
@@ -99,24 +99,6 @@ onLocateUser(){
   console.log(this.dist);
 	//return dist
 }
-*/
- distance() {
-        var radlat1 = Math.PI * this.lat1 / 180;
-        var radlat2 = Math.PI * this.lon1 / 180;
-        var radlon1 = Math.PI * this.lat2 / 180;
-        var radlon2 = Math.PI * this.lon2 / 180;
-        var theta = this.lon1 - this.lon2;
-        var radtheta = Math.PI * theta / 180;
-        this.dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
-        this.dist = Math.acos(this.dist);
-        this.dist = this.dist * 180 / Math.PI;
-        this.dist = this.dist * 60 * 1.1515;
-
-        //Get in in kilometers
-        this.dist = this.dist * 1.609344;
-
-       // return dist;
-    }
 
 
 
