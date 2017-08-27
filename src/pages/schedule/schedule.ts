@@ -21,6 +21,7 @@ export class SchedulePage {
   private delegatepg1: any;
   private descarr=[];
   private timearr=[];
+  private dayarr=[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private userservice:UsersServiceProvider,public alertCtrl: AlertController) {
 
@@ -28,17 +29,24 @@ export class SchedulePage {
       this.delegatepg1 = firebase.database().ref('schedule'); // Get a firebase reference to the homepage
     
   var that= this;
+  var j=0;var k=1;
     this.delegatepg1.on("value",function(snappy){
+      
       var i=0;
     snappy.forEach(function(snap1){
+     
        snap1.forEach(function(snap){
+         that.dayarr[j]=k;
         var desc = snap.child('description');
         var time = snap.child('time'); 
         that.descarr[i] = desc.val();
         that.timearr[i] = time.val();
         i=i+1;
+        j=j+1;
        });
+      k=k+1;
       }); 
+      
       });
 
   }

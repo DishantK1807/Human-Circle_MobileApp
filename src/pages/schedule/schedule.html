@@ -9,15 +9,26 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Schedule</h3>
 
-   <ion-content class="has-header">
-  <ion-list *ngFor="let head of timearr; let i = index" no-lines>
-       
-    <ion-item> {{ timearr[i] }} </ion-item>
-    <ion-item> {{ descarr[i] }} </ion-item>
-    
-  </ion-list>
+   <ion-content  class="table">
+  <table align="center">
+      <tr>
+        <th> DAY </th>
+    <th>TIME</th>
+    <th>ACTIVITY</th>
   
+  </tr>
+
+ 
+    <tr *ngFor="let head of timearr; let i = index" no-lines>
+     
+     <td> Day   {{dayarr[i]}}  </td>
+
+    <td> {{ timearr[i] }} </td>
+    <td> {{ descarr[i] }} </td>
+    
+  </tr>
+  
+  </table>
  </ion-content>
 </ion-content>
