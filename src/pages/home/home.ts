@@ -39,11 +39,7 @@ this.fbdata=firebase.database();
   else {
   this.userservice.loadjsonUsers(this.txt).then(data=>{
   this.usersList=data;
-  //alert(this.usersList[0].email.trim());
-  //alert("Try Again");
-  //this.timeout();
   this.text2();
-
   })
   }
   }
@@ -57,14 +53,7 @@ this.fbdata=firebase.database();
   });
   }
   }
-  timeout() {
-      var that = this;
-      setTimeout(function () {
-          console.log('Test');
-          that.timeout();
-      }, 1000/3600);
-      alert("Timed out...please try again");
-  }
+  
   addContent(){
   if (this.number==1){
   this.fbdata.ref('homepage/').remove();

@@ -14,10 +14,15 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Venue Map</h3><ion-item>
+  <h3>IMAGES</h3>
+  <ion-item>
   <ion-input type="string" placeholder="Enter URL of image" [(ngModel)]="url" clearInput></ion-input></ion-item>
   <img src="{{url}}">
   <button ion-button block (click)="addphoto()">Add photos using url</button>
+  <h3>LOCATION</h3><ion-item>
+  <ion-input type="string" placeholder="Enter Latitude" [(ngModel)]="latt" clearInput></ion-input></ion-item><ion-item>
+  <ion-input type="string" placeholder="Enter Longitude" [(ngModel)]="longg" clearInput></ion-input></ion-item>
+  <button ion-button block (click)="addlocation()">Send Location to database</button>
 
   <!--<ion-item>
     <ion-row>

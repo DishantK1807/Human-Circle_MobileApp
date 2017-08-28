@@ -18,9 +18,15 @@ import * as firebase from 'firebase';
 })
 export class TeamdetailsPage {
 public txt:any;
-private usersList:any;
+public usersList:any;
+public i:any;
+public j:any;
+public fbdata:any;
+public get:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http ,private userservice:UsersServiceProvider) {
+  this.fbdata=firebase.database();
+
   }
 
   addteamsinfirebase(){
@@ -31,19 +37,22 @@ private usersList:any;
   this.userservice.loadjsonUsers(this.txt.trim()).then(data=>{
   this.usersList=data;
   this.addtodatabase();
-  });
+  })
   }
   }
   addtodatabase(){
   alert("Started adding to database....Please Wait");
-    
-  //for(this.i=0;this.i<=(this.usersList.length-1);this.i++){
-  //this.userservice.addUsers(this.usersList[this.i].email.trim(),this.usersList[this.i].login.password.trim(),this.usersList[this.i].phone.trim(' '),this.usersList[this.i].login.username.trim(),this.usersList[this.i].name.first.trim(),this.usersList[this.i].name.last.trim(),this.usersList[this.i].gender.trim()).then(authData=>{
-  //alert('Json users added :'+this.i);
-  //},error=>{
-  //alert('error in adding users'+error.message);
-  //});
-  //}
+  console.log(this.usersList.length);
+  //console.log(this.usersList[0].team.length);
+  for(this.j=0;this.j<this.usersList.length;this.j++){
+  for(this.i=0;this.i<this.usersList[this.j].team.length;this.i++){
+  //console.log(this.usersList[0].team[0]);
+  this.fbdata.ref('teamdetails/team'+this.usersList[this.j].team_number+'/team/member'+this.i).set(this.usersList[this.j].team[this.i]);
+  }
+  this.fbdata.ref('teamdetails/team'+this.usersList[this.j].team_number+'/mentor/').set({contact:this.usersList[this.j].mentor.contact ,link:this.usersList[this.j].mentor.link ,name: this.usersList[this.j].mentor.name});
+  alert("Team "+this.usersList[this.j].team_number+" added");
+  }
+  alert("All team details are added to database");
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeamdetailsPage');

@@ -44,10 +44,9 @@ public userProfile:any;
       this.data= data.results;
       resolve(this.data);
    },error=>{
-   alert('Error in adding...Try again...');
+   alert('Error in fetching...Try again...'+error.message);
    })
   });
-
   }
   signupUser(email: string,password: string){
   return this.fireAuth.createUserWithEmailAndPassword(email,password).then((newUser)=>{
