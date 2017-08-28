@@ -38,7 +38,7 @@ export class PersonalinfoPage {
     showAlert(ui) {
     let alert = this.alertCtrl.create({title:'hello my user id is: ' + ui});
     alert.present();
-  }
+  } 
 
   displayUser(theUserId){
     var that = this;

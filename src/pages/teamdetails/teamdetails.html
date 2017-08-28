@@ -14,10 +14,23 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Team Details</h3>
+  <h3 font-weight: bold>  Mentor details are: </h3>
+   <div *ngFor="let head of mentors; let i = index" no-lines>
+ <ul>
+    <li> {{mentors[i]}}  </li>
+ </ul>
+  </div>        
+    
+  <br />
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <h3 font-weight: bold>  Team details are: </h3>
+   <div *ngFor="let mem of members; let j = index" no-lines>
+ <ul>
+    <li> {{members[j]}}  </li>
+ </ul>
+  </div> 
 
+  
+  
+   
 </ion-content>
