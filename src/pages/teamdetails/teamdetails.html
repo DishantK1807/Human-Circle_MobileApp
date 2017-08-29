@@ -23,14 +23,40 @@
     
   <br />
 
-  <h3 font-weight: bold>  Team details are: </h3>
+ <!-- <h3 font-weight: bold>  Team details are: </h3>
    <div *ngFor="let mem of members; let j = index" no-lines>
  <ul>
     <li> {{members[j]}}  </li>
  </ul>
   </div> 
+-->
+  <h3 font-weight: bold>  Team details are: </h3>
+   <div *ngFor="let mem of userFname; let j = index" no-lines>
+ <ul>
+    <li> {{userFname[j]}}  </li>
+ </ul>
+  </div> 
 
-  
+  <h3 font-weight: bold>  Team details are: </h3>
+   <div *ngFor="let mem of userLname; let k = index" no-lines>
+ <ul>
+    <li> {{userLname[j]}}  </li>
+ </ul>
+  </div> 
+
+  <h3 font-weight: bold>  Team details are: </h3>
+   <div *ngFor="let mem of userNumber; let j = index" no-lines>
+ <ul>
+    <li> {{userNumber[j]}}  </li>
+ </ul>
+  </div>
+
+  <h3 font-weight: bold>  Team details are: </h3>
+   <div *ngFor="let mem of userEmail; let j = index" no-lines>
+ <ul>
+    <li> {{userEmail[j]}}  </li>
+ </ul>
+  </div>
   
    
 </ion-content>

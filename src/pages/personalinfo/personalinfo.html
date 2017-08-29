@@ -12,10 +12,44 @@
     <ion-title>Personal Information</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  <h3>My Account</h3>
-  
+<ion-content  class="table">
+   
+    <table align="center">
+      <tr>
+      <td> Username </td>
+      <td> {{userUsername}} </td>
+    </tr>
+ 
+    <tr>
+      <td> Firstname </td>
+      <td> {{userFname}} </td>
+    </tr>
+
+        <tr>
+      <td> Lastname </td>
+      <td> {{userLname}} </td>
+    </tr>
+
+        <tr>
+      <td> Gender </td>
+      <td> {{userSex}} </td>
+    </tr>
+
+    <tr>
+      <td> Contact No. </td>
+      <td> {{userNumber}} </td>
+    </tr>
+
+    <tr>
+      <td> Email-id </td>
+      <td> {{userEmail}} </td>
+    </tr>
+ 
+  </table>
+   
+
+   <!--
   <p>
  <ion-card-title>
  {{myUserId}}
@@ -28,6 +62,7 @@
    
 </ion-card-title>
   </p>
+-->
 
-
+</ion-content>
 </ion-content>
