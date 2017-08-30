@@ -1,3 +1,35 @@
 page-teamdetails {
+.table{
+    font-size: 15px;
 
+    table{ 
+        width: 100%;
+        height: 100%;
+    }
+
+    table,th,td{
+    border: 1px solid black;
+    overflow-x:scroll ; overflow-y: scroll; 
+     overflow: auto;
+    white-space: nowrap;
+    }
+     
+    th,td{
+        padding: 10px;
+        text-align: center;
+    }
+
+    th{
+        background-color: #207d8e ;
+        color: white;
+    }
+
+    tr:nth-child(even){
+        background-color: white;
+    }
+
+    tr:nth-child(odd){
+        background-color: #1892A9;
+    }
+}
 }

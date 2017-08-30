@@ -23,6 +23,7 @@ export class TeamdetailsPage {
   private homepg: any;
 
   private mentors=[];
+  private fields=[];
   private members=[];
   private flag:any;
 
@@ -41,12 +42,17 @@ export class TeamdetailsPage {
       this.homepg = firebase.database().ref('teamdetails'); // Get a firebase reference to the homepage
     
   var that= this; that.flag=0;
+  that.fields[0]='Name';
+  that.fields[1]='Link';
+  that.fields[2]='Contact No.' ;
     this.homepg.on("value",function(snappy){
+      
       var i=0;
     snappy.forEach(function(snapi){
-      console.log('my user id is:',myUserId);
+     
       if (that.flag==1)
         {return;}
+      that.members=[];
        var lmentor = snapi.child('mentor');      
        var lteam = snapi.child('team');
          var j=0; 
@@ -59,56 +65,38 @@ export class TeamdetailsPage {
                   j=j+1;
              });
 
+             
+
           if(that.flag==1) /////loop for mentor details
-            { var t=0;
+            { var t=2;
               lmentor.forEach(function(n){
                 that.mentors[t] = n.val();
-                console.log(n.val());
-                t=t+1;
+                
+                t=t-1;
               });
             }
 
           if (that.flag==1) /////loop for team members user ids
             { var k=0; 
-              while(j>=1)
-                {console.log(that.members[k]);
-                                    
-                          
-                          that.userservice.viewUser(that.members[k]).then(snapshot => {
-                          console.log('keyyyyyyyyyy',snapshot.key);
-                          console.log('firsttttttttt',snapshot.val().firstname);
-                          console.log(snapshot.val().lastname);
-                          console.log(snapshot.val().email);
-                          console.log(snapshot.val().number);
-                            that.userFname[k] = snapshot.val().firstname;
-                            
-                            that.userLname[k] = snapshot.val().lastname;
-                            that.userEmail[k] = snapshot.val().email;
-                            //then.userSex = snapshot.val().sex;
-                            that.userNumber[k] = snapshot.val().number;
-                            //then.userUsername = snapshot.val().username;
-                          })
-
-                k=k+1; j=j-1;}
-                that.check();
+              
+              that.members.forEach(function(member){
+                that.userservice.viewUser(member).then(snapshot => {
+                  that.userFname[k]=snapshot.val().firstname;
+                  that.userLname[k]=snapshot.val().lastname;
+                  that.userNumber[k]=snapshot.val().number;
+                  that.userEmail[k]=snapshot.val().email;
+                  k=k+1;
+                });
+              }) 
                 }
-      
                    
-          /*  if (m.val()==myUserId)
-              { 
-                console.log('Team found');
-              }
-          */
+         
         });
         i=i+1;
 
       }); 
     
      }  
- check(){
-   console.log('i should END');
- }
-
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeamdetailsPage');

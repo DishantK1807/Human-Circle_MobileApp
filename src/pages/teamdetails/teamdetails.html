@@ -13,50 +13,45 @@
   </ion-navbar>
 </ion-header>
 
+
+
 <ion-content padding>
+  
   <h3 font-weight: bold>  Mentor details are: </h3>
-   <div *ngFor="let head of mentors; let i = index" no-lines>
+   <div *ngFor="let head of mentors; let i = index"  no-lines>
  <ul>
-    <li> {{mentors[i]}}  </li>
+    <li>{{fields[i]}} : {{mentors[i]}}  </li>
  </ul>
   </div>        
     
   <br />
 
- <!-- <h3 font-weight: bold>  Team details are: </h3>
-   <div *ngFor="let mem of members; let j = index" no-lines>
- <ul>
-    <li> {{members[j]}}  </li>
- </ul>
-  </div> 
--->
-  <h3 font-weight: bold>  Team details are: </h3>
-   <div *ngFor="let mem of userFname; let j = index" no-lines>
- <ul>
-    <li> {{userFname[j]}}  </li>
- </ul>
-  </div> 
-
-  <h3 font-weight: bold>  Team details are: </h3>
-   <div *ngFor="let mem of userLname; let k = index" no-lines>
- <ul>
-    <li> {{userLname[j]}}  </li>
- </ul>
-  </div> 
-
-  <h3 font-weight: bold>  Team details are: </h3>
-   <div *ngFor="let mem of userNumber; let j = index" no-lines>
- <ul>
-    <li> {{userNumber[j]}}  </li>
- </ul>
-  </div>
-
-  <h3 font-weight: bold>  Team details are: </h3>
-   <div *ngFor="let mem of userEmail; let j = index" no-lines>
- <ul>
-    <li> {{userEmail[j]}}  </li>
- </ul>
-  </div>
+     
+<h3 font-weight: bold>  Team details are: </h3>
+     <ion-content  class="table">
+       <ion-scroll scrollX="true" white-space: nowrap style="height: 700px;" >
+  <ion-scroll scrollY="true" white-space: nowrap style="height: 900px;" >
+  <table align="center">
+      <tr>
+        <th> NAME</th>
+    <th>Email Id</th>
+    <th>Contact No.</th>
   
-   
+  </tr>
+
+ 
+    <tr *ngFor="let head of userLname; let i = index" no-lines>
+     
+     <td> {{userFname[i]}} {{userLname[i]}}  </td>
+
+    <td>{{userEmail[i]}} </td>
+    <td>{{userNumber[i]}} </td>
+    
+  </tr>
+  
+  </table>
+</ion-scroll> 
+ </ion-scroll> 
+ </ion-content>
+  
 </ion-content>
