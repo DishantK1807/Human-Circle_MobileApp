@@ -24,26 +24,17 @@ export class PersonalinfoPage {
   private userNumber: any;
   private userUsername: any;
   
-  
-
-
   constructor(public navCtrl: NavController, public navParams: NavParams, private userservice: UsersServiceProvider,public alertCtrl: AlertController) {
    
      var myUserId = firebase.auth().currentUser.uid; //current user id
     this.displayUser(myUserId);
-   this.showAlert(myUserId);
 
   }
 
-    showAlert(ui) {
-    let alert = this.alertCtrl.create({title:'hello my user id is: ' + ui});
-    alert.present();
-  } 
-
+  
   displayUser(theUserId){
     var that = this;
     this.userservice.viewUser(theUserId).then(snapshot => {
-     // alert(snapshot.key);
       that.userFname = snapshot.val().firstname;
       that.userLname = snapshot.val().lastname;
       that.userEmail = snapshot.val().email;
