@@ -18,7 +18,12 @@
   				<ion-item>
   					<ion-input type="password" [(ngModel)]="passfield" placeholder="Password"></ion-input>
   				</ion-item>
-  				<a>Forgot your login detail? <b>Get help signing in</b></a>
+  				<a>Forgot your login detail? 
+						<b>
+							<button ion-button  outline color="light" (click)="message()">
+							Get help signing in
+						</button>
+						</b></a>
   				<button ion-button block outline color="light" (click)="getval()">Log in</button>
   			</ion-list>
   		</ion-card-content>

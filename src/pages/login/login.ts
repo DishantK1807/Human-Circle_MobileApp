@@ -35,7 +35,7 @@ export class LoginPage {
         private unit ="K";
         private dist: any;
 
-  constructor(private geolocation: Geolocation,private platform: Platform,public navCtrl: NavController, public navParams: NavParams, public menu:MenuController,private alertController:AlertController ,private userservice:UsersServiceProvider, private loadingController: LoadingController) 
+  constructor(public alertCtrl: AlertController,private geolocation: Geolocation,private platform: Platform,public navCtrl: NavController, public navParams: NavParams, public menu:MenuController,private alertController:AlertController ,private userservice:UsersServiceProvider, private loadingController: LoadingController) 
   {
     this.db = firebase.database().ref('/'); // Get a firebase reference to the root
       this.homepg = firebase.database().ref('venuemaplocation'); // Get a firebase reference to the homepage
@@ -56,6 +56,13 @@ export class LoginPage {
       });
 
   }
+
+  message(){
+   
+    let alert = this.alertCtrl.create({title:'Please register yourself at youngindiachallenge.com. If you are registered for the event and still not able to sign in, please send an email at info@humancircle.in.' });
+     alert.present();
+   
+}
 
   getval(){
     
@@ -102,9 +109,13 @@ checkdist(){
 if (this.dist<10)       //condition for checking if user is near venue
   { this.submitLogin() }
 else
-  alert("NOT IN RANGE! GET CLOSER TO VENUE TO BE ABLE TO LOG IN.")
+  this.message2();
 }
 
+message2(){
+  let alert = this.alertCtrl.create({title:'NOT IN RANGE! GET CLOSER TO VENUE TO BE ABLE TO LOG IN.' });
+     alert.present();
+}
 
   signUserUp(){
   this.userservice.signupUser(this.emailfield,this.passfield).then(authData=>{
