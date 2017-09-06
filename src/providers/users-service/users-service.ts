@@ -19,6 +19,7 @@ public userProfile:any;
   this.userProfile=firebase.database().ref('users');
 
   }
+
   loadUser(){
   if(this.data){
   return Promise.resolve(this.data);
@@ -33,6 +34,7 @@ public userProfile:any;
   })
 
   }
+  //reading json objects from http links
   loadjsonUsers(url: string){
   if(this.data){
   return Promise.resolve(this.data);
@@ -55,6 +57,7 @@ public userProfile:any;
   });
   });
   }
+  //signing up all the users from the data fetched from json
   addUsers(email: string,password: string,number:any,username: any,firstname: string,lastname: string,sex: any){
   return this.fireAuth.createUserWithEmailAndPassword(email,password).then((authenticatedUser)=>{
   this.userProfile.child(authenticatedUser.uid).set({email:email,number:number,username:username,firstname:firstname,lastname:lastname,sex:sex});
@@ -65,11 +68,12 @@ public userProfile:any;
 
     return UserRef.once('value');
   }
-
+//logging in the user
   loginUser(email: string, password: string): any{
   return this.fireAuth.signInWithEmailAndPassword(email,password);
 
   }
+  //logging out the user
   logoutUser(){
   return this.fireAuth.signOut();
   }

@@ -1,10 +1,8 @@
 import { Component,NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FileChooser } from '@ionic-native/file-chooser';
-import { FilePath } from '@ionic-native/file-path';
-import { File } from '@ionic-native/file';
-import { Camera, CameraOptions } from '@ionic-native/camera';
 import * as firebase from 'firebase';
+import { ToastController } from 'ionic-angular';
+
 /**
  * Generated class for the VenuemapPage page.
  *
@@ -25,7 +23,7 @@ public myPhotosRef: any;
   public number:any;
   public latt:any;
   public longg:any;
-   constructor(public navCtrl: NavController, public navParams: NavParams, public zone: NgZone, public camera:Camera) {
+   constructor(public navCtrl: NavController, public navParams: NavParams, public zone: NgZone,private toastCtrl: ToastController) {
    this.number=1;
    this.fbdata=firebase.database();
   }
@@ -33,21 +31,37 @@ public myPhotosRef: any;
   ionViewDidLoad() {
     console.log('ionViewDidLoad VenuemapPage');
   }
+  //adding links to the firebase database and displaying the image
   addphoto(){
-  //alert(this.number);
   if (this.number==1){
   this.fbdata.ref('venuemap/').remove();
   }
   this.fbdata.ref('venuemap/image'+this.number).set(
   {link:this.url.trim()}
   );
-  alert("Image "+this.number+" link added:"+this.url.trim());
+  //alert("Image "+this.number+" link added:"+this.url.trim());
+  let toast = this.toastCtrl.create({
+    message: 'Image '+this.number+' link added:'+this.url.trim(),
+    duration: 3000,
+    position: 'bottom'
+
+  });
+  toast.present();
   this.number++;
   }
+  //setting location of the venue
   addlocation(){
   this.fbdata.ref('venuemaplocation/coordinates/').set(
   {latt:this.latt.trim(),long:this.longg.trim()}
   );
-  alert("Location of the venue updated with lattitude: " +this.latt.trim()+" and longitude: "+this.longg.trim());
+  let toast = this.toastCtrl.create({
+    message: 'Location of the venue updated with lattitude: ' +this.latt.trim()+' and longitude: '+this.longg.trim(),
+    duration: 3000,
+    position: 'bottom'
+  });
+  toast.present();
+
   }
+
+
 }

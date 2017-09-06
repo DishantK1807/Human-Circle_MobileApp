@@ -27,6 +27,7 @@ constructor(public navCtrl: NavController, public navParams: NavParams, private 
 
 
   }
+  //fetching data from the firebase database according to the user id
 displayUser(theUserId){
     var that = this;
     this.userservice.viewUser(theUserId).then(snapshot => {

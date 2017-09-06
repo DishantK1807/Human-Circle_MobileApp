@@ -21,13 +21,14 @@ public number:any;
 public fbdata:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  this.number=1;  
+  this.number=1;
   this.fbdata=firebase.database();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MentorsPage');
   }
+  //adding mentors to the firebase database
   addMentors(){
   if (this.number==1){
   this.fbdata.ref('mentors/').remove();

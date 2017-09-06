@@ -33,6 +33,7 @@ public fbdata:any;
   ionViewDidLoad() {
     console.log('ionViewDidLoad SchedulePage');
   }
+  //adding day 1 events' details to firebase database
   dayoneevents(){
   if (this.number==1){
   this.fbdata.ref('schedule/day1/').remove();
@@ -42,6 +43,7 @@ public fbdata:any;
   this.number++;
   }
 
+  //adding day 2 events' details to firebase database
   daytwoevents(){
   if (this.number2==1){
   this.fbdata.ref('schedule/day2/').remove();

@@ -62,9 +62,9 @@ export class MyApp {
 
       { title: 'Mentors', component: MentorsPage ,icons :'person'},
       { title: 'Opportunities', component: OpportunitiesPage ,icons :'person'},
-      { title: 'Privacy Policy', component: PrivacypolicyPage ,icons :'person'},
+      { title: 'Privacy Policy', component: PrivacypolicyPage ,icons :'person'}
 
-      { title: 'Terms and Conditions', component: TermsandconditionsPage ,icons :'person'}
+
     ];
 
   }

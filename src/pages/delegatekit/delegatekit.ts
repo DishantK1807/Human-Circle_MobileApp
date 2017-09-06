@@ -30,6 +30,7 @@ public fbdata:any;
   ionViewDidLoad() {
     console.log('ionViewDidLoad DelegatekitPage');
   }
+  //adding paragraphs (to be displayed on delegatekit`s page) to firebase database
   addContent(){
   if (this.number==1){
   this.fbdata.ref('delegatekitcontent/').remove();
@@ -38,6 +39,8 @@ public fbdata:any;
   alert("Content for paragraph "+this.number+" added : "+this.input1.trim());
   this.number++;
   }
+  //adding links (to be displayed on delegatekit`s page) to firebase database
+
   addLinks(){
   if (this.number2==1){
   this.fbdata.ref('delegatekitlink/').remove();

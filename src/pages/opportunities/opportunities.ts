@@ -28,6 +28,7 @@ public fbdata:any;
   ionViewDidLoad() {
     console.log('ionViewDidLoad OpportunitiesPage');
   }
+  //adding links to the firebase
   addlinks(){
   if (this.number==1){
   this.fbdata.ref('opportunities/').remove();
