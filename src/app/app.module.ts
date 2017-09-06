@@ -16,7 +16,7 @@ import { OpportunitiesPage } from '../pages/opportunities/opportunities';
 import { MentorsPage } from '../pages/mentors/mentors';
 
 import { PrivacypolicyPage } from '../pages/privacypolicy/privacypolicy';
-import { TermsandconditionsPage } from '../pages/termsandconditions/termsandconditions';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsersServiceProvider } from '../providers/users-service/users-service';
@@ -24,6 +24,10 @@ import { HttpModule } from '@angular/http';
 
 
 import { Camera } from '@ionic-native/camera';
+
+import { Geolocation } from '@ionic-native/geolocation';
+import { Platform } from 'ionic-angular';
+
 
 
 @NgModule({
@@ -40,11 +44,14 @@ import { Camera } from '@ionic-native/camera';
     MentorsPage,
     OpportunitiesPage,
     PrivacypolicyPage,
-    TermsandconditionsPage,
+    
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+     IonicModule.forRoot(MyApp, { 
+      scrollAssist: false,
+      autoFocusAssist: false
+    }),
     HttpModule
     ],
   bootstrap: [IonicApp],
@@ -61,11 +68,12 @@ import { Camera } from '@ionic-native/camera';
     MentorsPage,
     OpportunitiesPage,
     PrivacypolicyPage,
-    TermsandconditionsPage
+    
   ],
   providers: [
     StatusBar,
     Camera,
+    Geolocation,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UsersServiceProvider
