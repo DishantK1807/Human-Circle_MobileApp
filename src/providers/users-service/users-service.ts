@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Loading,LoadingController } from 'ionic-angular';
 import * as firebase from 'firebase';
 
 /*
@@ -14,7 +15,8 @@ export class UsersServiceProvider {
 private data:any;
 public fireAuth:any;
 public userProfile:any;
-  constructor(public http: Http) {
+loading: Loading;
+  constructor(public http: Http,public loadingCtrl: LoadingController) {
   this.fireAuth=firebase.auth();
   this.userProfile=firebase.database().ref('users');
 
@@ -36,6 +38,10 @@ public userProfile:any;
   }
   //reading json objects from http links
   loadjsonUsers(url: string){
+  this.loading = this.loadingCtrl.create({
+   content: 'Fetching Data...Please wait...'
+ });
+ this.loading.present();
   if(this.data){
   return Promise.resolve(this.data);
   }
@@ -45,7 +51,9 @@ public userProfile:any;
    .subscribe(data => {
       this.data= data.results;
       resolve(this.data);
+  this.loading.dismiss();
    },error=>{
+   this.loading.dismiss();
    alert('Error in fetching...Try again...'+error.message);
    })
   });

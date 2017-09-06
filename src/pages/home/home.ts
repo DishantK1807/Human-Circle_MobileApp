@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,Loading,LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { LoginPage } from '../login/login';
 import { PopoverController } from 'ionic-angular';
@@ -24,8 +24,9 @@ public input1:any;
 public input2:any;
 public number:any;
 public fbdata:any;
+loading: Loading;
 
-  constructor(public navCtrl: NavController,public http: Http ,private userservice:UsersServiceProvider) {
+  constructor(public navCtrl: NavController,public http: Http ,private userservice:UsersServiceProvider,public loadingCtrl: LoadingController) {
 this.userId=firebase.auth().currentUser.uid;
 this.number=1;
 this.fbdata=firebase.database();
@@ -42,17 +43,25 @@ this.fbdata=firebase.database();
   this.userservice.loadjsonUsers(this.txt).then(data=>{
   this.usersList=data;
   this.text2();
+  },error=>{
+  alert('error in adding users'+error.message);
   })
   }
   }
   //after reading users and their info from the json file storing it in the firebase database
   text2(){
-  alert("Started adding to database");
+  //alert("Started adding to database");
+  this.loading = this.loadingCtrl.create({
+  content: 'Started adding to database'
+  });
+  this.loading.present();
   for(this.i=0;this.i<=(this.usersList.length-1);this.i++){
   //signing up users (Authentication in firebase) with the json details and adding the details of user in database
   this.userservice.addUsers(this.usersList[this.i].email.trim(),this.usersList[this.i].login.password.trim(),this.usersList[this.i].phone.trim(' '),this.usersList[this.i].login.username.trim(),this.usersList[this.i].name.first.trim(),this.usersList[this.i].name.last.trim(),this.usersList[this.i].gender.trim()).then(authData=>{
+  this.loading.dismiss();
   alert('Json users added :'+this.i);
   },error=>{
+  this.loading.dismiss();
   alert('error in adding users'+error.message);
   });
   }

@@ -30,7 +30,7 @@ public get:any;
   this.fbdata=firebase.database();
 
   }
-//getting team details from json file and stoting on the firebase database
+//getting team details from json file and storing on the firebase database
   addteamsinfirebase(){
   if(this.txt==null){
   alert("Please enter json file url");
@@ -51,8 +51,10 @@ public get:any;
   });
   toast1.present();
   //alert("Started adding to database....Please Wait");
-  //console.log(this.usersList.length);
-  //console.log(this.usersList[0].team.length);
+  //if(this.usersList[0].team=='undefined'){
+  //alert("error in json file");
+  //}
+  //else{
   for(this.j=0;this.j<this.usersList.length;this.j++){
   for(this.i=0;this.i<this.usersList[this.j].team.length;this.i++){
   //console.log(this.usersList[0].team[0]);
@@ -61,6 +63,7 @@ public get:any;
   this.fbdata.ref('teamdetails/team'+this.usersList[this.j].team_number+'/mentor/').set({contact:this.usersList[this.j].mentor.contact ,link:this.usersList[this.j].mentor.link ,name: this.usersList[this.j].mentor.name});
   alert("Team "+this.usersList[this.j].team_number+" added");
   }
+  //}
   //alert("All team details are added to database");
   let toast = this.toastCtrl.create({
     message: 'All team details are added to database',
